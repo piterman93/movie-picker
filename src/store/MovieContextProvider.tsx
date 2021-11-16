@@ -23,7 +23,8 @@ export const MovieContextProvider: React.FC = ({ children }) => {
 
   const confirmItem = (id: string) => {
     setLoading(true);
-    acceptMovieAPI(id)
+    const confirmedItem = [...movies].find((item) => item.id === id);
+    acceptMovieAPI(id, confirmedItem!)
       .then((data) => {
         // if our response is ok
       })
@@ -39,7 +40,8 @@ export const MovieContextProvider: React.FC = ({ children }) => {
   };
   const rejectItem = (id: string) => {
     setLoading(true);
-    rejectMovieAPI(id)
+    const rejectedItem = [...movies].find((item) => item.id === id);
+    rejectMovieAPI(id, rejectedItem!)
       .then((data) => {
         // if our response is ok
       })
