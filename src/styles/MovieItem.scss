@@ -10,6 +10,9 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(162, 162, 162, 1);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(162, 162, 162, 1);
+  box-shadow: 0px 0px 10px 0px rgba(162, 162, 162, 1);
 
   &.fade-enter {
     opacity: 0;
@@ -29,7 +32,7 @@
   }
   &.fade-enter-active,
   &.fade-exit-active {
-    transition: opacity 500ms, transform 500ms;
+    transition: opacity 400ms, transform 400ms;
   }
 
   @media screen and (max-width: 1200px) {

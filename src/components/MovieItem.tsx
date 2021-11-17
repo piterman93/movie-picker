@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import MovieContext from "../store/movie-context";
-// import { useDrag } from "@use-gesture/react";
 
 import "../styles/MovieItem.scss";
 

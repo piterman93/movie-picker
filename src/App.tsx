@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useCallback } from "react";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 import MovieItem from "./components/MovieItem";
@@ -8,8 +8,47 @@ import "./styles/App.scss";
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const context = useContext(MovieContext);
+
+  const handleTouchStart = (e: any) => {
+    const start = e.changedTouches[0].clientX;
+    setTouchStart(start);
+  };
+
+  const handleTouchMove = (e: any) => {
+    const end = e.changedTouches[0].clientX;
+    setTouchEnd(end);
+  };
+
+  const handleTouchEnd = useCallback(() => {
+    if (
+      touchStart - touchEnd < -150 &&
+      activeIndex <= context.movies.length - 1
+    ) {
+      context.rejectItem(context.movies[activeIndex].id);
+      setActiveIndex(activeIndex + 1);
+      setTouchStart(0);
+      setTouchEnd(0);
+    } else {
+      return;
+    }
+  }, [activeIndex, touchEnd, touchStart, context]);
+
+  useEffect(() => {
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchmove", handleTouchMove);
+
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [handleTouchEnd]);
+
+  window.addEventListener("touchend", handleTouchEnd);
 
   const content =
     context.movies.length === activeIndex ? (
