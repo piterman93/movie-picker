@@ -30,8 +30,8 @@ export const MovieContextProvider: React.FC = ({ children }) => {
       .catch((error) => {
         setError(error);
         //error handling - in our case API call always returns error as URL does not exist
-      });
-    setLoading(false);
+      })
+      .finally(() => setLoading(false));
   };
 
   const rejectItem = (id: string) => {
@@ -44,8 +44,8 @@ export const MovieContextProvider: React.FC = ({ children }) => {
       .catch((error) => {
         setError(error);
         //error handling - in our case API call always returns error as URL does not exist
-      });
-    setLoading(false);
+      })
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
