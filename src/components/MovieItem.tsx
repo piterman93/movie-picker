@@ -46,12 +46,14 @@ const MovieItem: React.FC<MovieItemProps> = ({
         <p>{summary}</p>
         <div className="actions">
           <button
+            data-testid="accept-button"
             className="button button__confirm"
             onClick={() => confirmMovieHandler(id)}
           >
             Accept
           </button>
           <button
+            data-testid="reject-button"
             className="button button__reject"
             onClick={() => rejectMovieHandler(id)}
           >
