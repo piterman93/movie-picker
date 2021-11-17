@@ -24,6 +24,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
 
     .notification {
       width: 100%;

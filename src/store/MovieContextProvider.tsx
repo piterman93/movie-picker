@@ -32,11 +32,8 @@ export const MovieContextProvider: React.FC = ({ children }) => {
         //error handling - in our case API call always returns error as URL does not exist
       });
     setLoading(false);
-
-    // removing item from movies array for our need
-    const newMovies = [...movies].filter((movie) => movie.id !== id);
-    setMovies(newMovies);
   };
+
   const rejectItem = (id: string) => {
     setLoading(true);
     const rejectedItem = [...movies].find((item) => item.id === id);
@@ -49,10 +46,6 @@ export const MovieContextProvider: React.FC = ({ children }) => {
         //error handling - in our case API call always returns error as URL does not exist
       });
     setLoading(false);
-
-    // removing item from movies array for our need
-    const newMovies = [...movies].filter((movie) => movie.id !== id);
-    setMovies(newMovies);
   };
 
   useEffect(() => {

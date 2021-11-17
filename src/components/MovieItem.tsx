@@ -1,10 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import MovieContext from "../store/movie-context";
-import { useDrag } from "@use-gesture/react";
+// import { useDrag } from "@use-gesture/react";
 
 import "../styles/MovieItem.scss";
-
-import { containerVariants } from "../utils/animationData";
 
 export interface MovieItemProps {
   imageURL: string;
@@ -28,12 +26,12 @@ const MovieItem: React.FC<MovieItemProps> = ({
   const context = useContext(MovieContext);
 
   const confirmMovieHandler = (id: string) => {
-    setActiveIndex(activeIndex++);
+    setActiveIndex((activeIndex += 1));
     context.confirmItem(id);
   };
 
   const rejectMovieHandler = (id: string) => {
-    setActiveIndex(activeIndex++);
+    setActiveIndex((activeIndex += 1));
     context.rejectItem(id);
   };
 

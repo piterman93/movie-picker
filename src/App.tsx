@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 import MovieItem from "./components/MovieItem";
 import MovieContext from "./store/movie-context";
@@ -11,19 +12,29 @@ function App() {
   const context = useContext(MovieContext);
 
   const content =
-    context.movies.length === 0 || activeIndex > context.movies.length - 1 ? (
+    context.movies.length === activeIndex ? (
       <div className="notification">No more movies to rate!</div>
     ) : (
-      <MovieItem
-        key={context.movies[activeIndex].id}
-        id={context.movies[activeIndex].id}
-        imageURL={context.movies[activeIndex].imageURL}
-        title={context.movies[activeIndex].title}
-        summary={context.movies[activeIndex].summary}
-        rating={context.movies[activeIndex].rating}
-        activeIndex={activeIndex}
-        setActiveIndex={setActiveIndex}
-      />
+      <SwitchTransition mode={"out-in"}>
+        <CSSTransition
+          key={activeIndex}
+          addEndListener={(node, done) => {
+            node.addEventListener("transitionend", done, false);
+          }}
+          classNames="fade"
+        >
+          <MovieItem
+            key={context.movies[activeIndex].id}
+            id={context.movies[activeIndex].id}
+            imageURL={context.movies[activeIndex].imageURL}
+            title={context.movies[activeIndex].title}
+            summary={context.movies[activeIndex].summary}
+            rating={context.movies[activeIndex].rating}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+          />
+        </CSSTransition>
+      </SwitchTransition>
     );
 
   return (

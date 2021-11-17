@@ -6,11 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 import { MovieContextProvider } from "./store/MovieContextProvider";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <MovieContextProvider>
-      <App />
-    </MovieContextProvider>
-  </React.StrictMode>,
+  <MovieContextProvider>
+    <App />
+  </MovieContextProvider>,
   document.getElementById("root")
 );
 
