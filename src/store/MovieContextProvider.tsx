@@ -7,15 +7,14 @@ import {
   acceptMovieAPI,
   rejectMovieAPI,
 } from "../services/moviesService";
-import { movieItem } from "../utils/moviesData";
+import { MovieItem } from "../utils/moviesData";
 
 export const MovieContextProvider: React.FC = ({ children }) => {
-  const [movies, setMovies] = useState<movieItem[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [movies, setMovies] = useState<MovieItem[]>([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   const getMovies = async () => {
-    setLoading(true);
     const moviesArray = await callMoviesAPI();
     setMovies(moviesArray);
     setLoading(false);

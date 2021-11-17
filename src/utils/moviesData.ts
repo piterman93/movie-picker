@@ -1,4 +1,4 @@
-export interface movieItem {
+export interface MovieItem {
   id: string;
   imageURL: string;
   title: string;
@@ -6,14 +6,14 @@ export interface movieItem {
   rating: number;
 }
 
-export const moviesData: movieItem[] = [
+export const moviesData: MovieItem[] = [
   {
     id: "1",
     imageURL:
       "https://images-na.ssl-images-amazon.com/images/M/MV5BMTUzNTE2NTkzMV5BMl5BanBnXkFtZTgwMDAzOTUyMDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
     title: "Inferno",
     summary:
-      "Robert Langdon budzi się we florenckim szpitalu i za sprawą tajemniczego przedmiotu zostaje celem obławy. Ucieka z pomocą doktor Sienny, podążając śladem wskazówek zawartych w poemacie Dantego.",
+      "Robert Langdon budzi się we florenckim szpitalu i za sprawą tajemniczego przedmiotu zostaje celem obławy. Ucieka z pomocą doktor Sienny, podążając śladem wskazówek zawartych w poemacie Dantego. ",
     rating: 7.3,
   },
   {

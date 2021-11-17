@@ -1,11 +1,11 @@
-import { movieItem, moviesData } from "../utils/moviesData";
+import { MovieItem, moviesData } from "../utils/moviesData";
 
 export const callMoviesAPI = () => {
   // here should be fetch POST request to "URL/recommendations" with try catch block which returns movies data or handle error
   return moviesData;
 };
 
-export const acceptMovieAPI = async (id: string, data: movieItem) => {
+export const acceptMovieAPI = async (id: string, data: MovieItem) => {
   return fetch(`URL/recommendations/${id}/accept`, {
     method: "PUT",
     headers: {
@@ -24,7 +24,7 @@ export const acceptMovieAPI = async (id: string, data: movieItem) => {
     });
 };
 
-export const rejectMovieAPI = async (id: string, data: movieItem) => {
+export const rejectMovieAPI = async (id: string, data: MovieItem) => {
   return fetch(`URL/recommendations/${id}/reject`, {
     method: "PUT",
     headers: {

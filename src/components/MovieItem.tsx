@@ -1,24 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import MovieContext from "../store/movie-context";
+import { useDrag } from "@use-gesture/react";
 
 import "../styles/MovieItem.scss";
 
-import { movieItem as movieItemProps } from "../utils/moviesData";
+import { containerVariants } from "../utils/animationData";
 
-const MovieItem: React.FC<movieItemProps> = ({
+export interface MovieItemProps {
+  imageURL: string;
+  title: string;
+  summary: string;
+  rating: number;
+  id: string;
+  activeIndex: number;
+  setActiveIndex: any;
+}
+
+const MovieItem: React.FC<MovieItemProps> = ({
   imageURL,
   title,
   summary,
   rating,
   id,
+  activeIndex,
+  setActiveIndex,
 }) => {
   const context = useContext(MovieContext);
 
   const confirmMovieHandler = (id: string) => {
+    setActiveIndex(activeIndex++);
     context.confirmItem(id);
   };
 
   const rejectMovieHandler = (id: string) => {
+    setActiveIndex(activeIndex++);
     context.rejectItem(id);
   };
 

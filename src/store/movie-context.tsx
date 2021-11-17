@@ -1,16 +1,16 @@
 import React from "react";
-import { movieItem } from "../utils/moviesData";
+import { MovieItem } from "../utils/moviesData";
 
 export interface movieContext {
   loading: boolean;
-  movies: movieItem[] | [];
+  movies: MovieItem[] | [];
   error: boolean;
   confirmItem: (id: string) => void;
   rejectItem: (id: string) => void;
 }
 
 const MovieContext = React.createContext<movieContext>({
-  loading: false,
+  loading: true,
   movies: [],
   error: false,
   confirmItem: () => {},
