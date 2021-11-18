@@ -50,7 +50,7 @@ function App() {
 
   window.addEventListener("touchend", handleTouchEnd);
 
-  const content =
+  const moviesContent =
     context.movies.length === activeIndex ? (
       <div className="notification">No more movies to rate!</div>
     ) : (
@@ -74,6 +74,13 @@ function App() {
           />
         </CSSTransition>
       </SwitchTransition>
+    );
+
+  const content =
+    context.loading && context.initialFetch ? (
+      <div className="notification">Loading...</div>
+    ) : (
+      moviesContent
     );
 
   return (

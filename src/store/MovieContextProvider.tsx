@@ -12,12 +12,18 @@ import { MovieItem } from "../utils/moviesData";
 export const MovieContextProvider: React.FC = ({ children }) => {
   const [movies, setMovies] = useState<MovieItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [initialFetch, setInitialFetch] = useState(true);
   const [error, setError] = useState(false);
 
   const getMovies = async () => {
     const moviesArray = await callMoviesAPI();
-    setMovies(moviesArray);
+    if (moviesArray) {
+      setMovies(moviesArray);
+    } else {
+      setMovies([]);
+    }
     setLoading(false);
+    setInitialFetch(false);
   };
 
   const confirmItem = (id: string) => {
@@ -49,15 +55,19 @@ export const MovieContextProvider: React.FC = ({ children }) => {
   };
 
   useEffect(() => {
-    getMovies();
+    //setTimeout added to simulate fetching time
+    setTimeout(() => {
+      getMovies();
+    }, 1000);
   }, []);
 
   const context: movieContext = {
-    loading: loading,
-    movies: movies,
-    error: error,
-    confirmItem: confirmItem,
-    rejectItem: rejectItem,
+    loading,
+    initialFetch,
+    movies,
+    error,
+    confirmItem,
+    rejectItem,
   };
 
   return (

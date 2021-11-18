@@ -3,6 +3,7 @@ import { MovieItem } from "../utils/moviesData";
 
 export interface movieContext {
   loading: boolean;
+  initialFetch: boolean;
   movies: MovieItem[] | [];
   error: boolean;
   confirmItem: (id: string) => void;
@@ -11,6 +12,7 @@ export interface movieContext {
 
 const MovieContext = React.createContext<movieContext>({
   loading: true,
+  initialFetch: true,
   movies: [],
   error: false,
   confirmItem: () => {},
