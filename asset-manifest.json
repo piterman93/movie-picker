@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/movie-picker/static/css/main.9182adbc.chunk.css",
-    "main.js": "/movie-picker/static/js/main.f3aae8a8.chunk.js",
-    "main.js.map": "/movie-picker/static/js/main.f3aae8a8.chunk.js.map",
+    "main.css": "/movie-picker/static/css/main.67f2a8be.chunk.css",
+    "main.js": "/movie-picker/static/js/main.17643982.chunk.js",
+    "main.js.map": "/movie-picker/static/js/main.17643982.chunk.js.map",
     "runtime-main.js": "/movie-picker/static/js/runtime-main.2887ded3.js",
     "runtime-main.js.map": "/movie-picker/static/js/runtime-main.2887ded3.js.map",
     "static/js/2.81987076.chunk.js": "/movie-picker/static/js/2.81987076.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.c7192f60.chunk.js": "/movie-picker/static/js/3.c7192f60.chunk.js",
     "static/js/3.c7192f60.chunk.js.map": "/movie-picker/static/js/3.c7192f60.chunk.js.map",
     "index.html": "/movie-picker/index.html",
-    "static/css/main.9182adbc.chunk.css.map": "/movie-picker/static/css/main.9182adbc.chunk.css.map",
+    "static/css/main.67f2a8be.chunk.css.map": "/movie-picker/static/css/main.67f2a8be.chunk.css.map",
     "static/js/2.81987076.chunk.js.LICENSE.txt": "/movie-picker/static/js/2.81987076.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2887ded3.js",
     "static/js/2.81987076.chunk.js",
-    "static/css/main.9182adbc.chunk.css",
-    "static/js/main.f3aae8a8.chunk.js"
+    "static/css/main.67f2a8be.chunk.css",
+    "static/js/main.17643982.chunk.js"
   ]
 }
