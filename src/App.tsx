@@ -25,7 +25,7 @@ function App() {
 
   const handleTouchEnd = useCallback(() => {
     if (
-      touchStart - touchEnd < -150 &&
+      touchStart - touchEnd < -75 &&
       activeIndex <= context.movies.length - 1
     ) {
       context.rejectItem(context.movies[activeIndex].id);

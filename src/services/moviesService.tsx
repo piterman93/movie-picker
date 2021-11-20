@@ -1,7 +1,7 @@
 import { MovieItem, moviesData } from "../utils/moviesData";
 
 export const callMoviesAPI = () => {
-  // here should be fetch POST request to "URL/recommendations" with try catch block which returns movies data or handle error
+  // here should be fetch GET request to "URL/recommendations" with try catch block which returns movies data or handle error
   return moviesData;
 };
 
